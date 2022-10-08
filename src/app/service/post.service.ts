@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class PostService {
-  private apiUrl: string = '';
+  private apiUrl: string = 'http://localhost:8080';
 
   constructor(private http: HttpClient) {}
 
@@ -18,5 +18,13 @@ export class PostService {
 
   public addPost(post: Post): Observable<Post> {
     return this.http.post<Post>(`${this.apiUrl}/post`, post);
+  }
+
+  public updatePost(post: Post): Observable<Post> {
+    return this.http.put<Post>(`${this.apiUrl}/post`, post);
+  }
+
+  public deletePost(postId: number): Observable<Post> {
+    return this.http.delete<Post>(`${this.apiUrl}/post/${postId}`);
   }
 }
