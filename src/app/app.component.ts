@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PostService } from './service/post.service';
 import { Post } from './model/Post';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -30,6 +31,10 @@ export class AppComponent implements OnInit {
         console.log(error);
       },
     });
+  }
+
+  public addPost(postForm: NgForm): void {
+    console.log('post added');
   }
 
   public get posts() {
