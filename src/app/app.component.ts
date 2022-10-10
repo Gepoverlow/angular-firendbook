@@ -34,7 +34,18 @@ export class AppComponent implements OnInit {
   }
 
   public addPost(postForm: NgForm): void {
-    console.log('post added');
+    console.log('Adding post...');
+
+    this.postService.addPost(postForm.value).subscribe({
+      next: (response: Post) => {
+        console.log(response);
+        this.getPosts();
+        postForm.reset();
+      },
+      error: (error) => {
+        console.log(error);
+      },
+    });
   }
 
   public get posts() {
