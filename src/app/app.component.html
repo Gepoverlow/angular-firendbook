@@ -1,3 +1,25 @@
+<nav class="navbar navbar-dark bg-primary">
+  <a class="navbar-brand m-1" href="#"> Friendbook </a>
+</nav>
+
+<div class="container-posts">
+  <div class="card-group">
+    <div *ngFor="let post of posts">
+      <div class="card m-1" style="width: 18rem">
+        <div class="card-body">
+          <h5 class="card-title">{{ post.postAuthor }}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">
+            {{ post.creationDate }}
+          </h6>
+          <p class="card-text">{{ post.postContent }}</p>
+          <a href="#" class="card-link">Card link</a>
+          <a href="#" class="card-link">Another link</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
 <!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
