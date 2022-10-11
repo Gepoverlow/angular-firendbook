@@ -10,13 +10,16 @@ import { NgForm } from '@angular/forms';
 })
 export class AppComponent implements OnInit {
   private _posts: Post[];
+  private _isUserAuthenticated;
 
   constructor(private postService: PostService) {
     this._posts = [];
+    this._isUserAuthenticated = false;
   }
 
   ngOnInit() {
     this.getPosts();
+    this.authenticateUser();
   }
 
   private getPosts() {
@@ -46,6 +49,14 @@ export class AppComponent implements OnInit {
         console.log(error);
       },
     });
+  }
+
+  public authenticateUser() {
+    console.log('Authenticating...', this._isUserAuthenticated);
+  }
+
+  public get isUserAuthenticated() {
+    return this._isUserAuthenticated;
   }
 
   public get posts() {

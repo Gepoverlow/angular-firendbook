@@ -1,1 +1,4 @@
-
+#navbar-options {
+  display: flex;
+  flex-direction: row;
+}
